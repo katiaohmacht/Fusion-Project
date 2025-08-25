@@ -16,7 +16,7 @@ diff -cr usb_cam/launch/camera.launch.py ../backup/usb_cam/launch/camera.launch.
               namespace=camera.namespace,
 !             parameters=[{'video_device': '/dev/video0'},
 !                         {'pixel_format': 'mjpeg2rgb'},
-!                         {'camera_info_url': '/workspaces/isaac_ros-dev/src/camera_info.yaml'}],
+!                         {'camera_info_url': 'MYWORKSPACE/src/camera_info.yaml'}],
               remappings=camera.remappings
           )
           for camera in CAMERAS
