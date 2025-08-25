@@ -2,11 +2,11 @@
 	path = mmwave_ti_ros
 	url = https://git.ti.com/git/mmwave_radar/mmwave_ti_ros.git
 [submodule "src/isaac_ros_common"]
-	path = src/isaac_ros_common
+	path = cam/src/isaac_ros_common
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_common.git
 [submodule "src/isaac_ros_object_detection"]
-	path = src/isaac_ros_object_detection
+	path = cam/src/isaac_ros_object_detection
 	url = https://github.com/NVIDIA-ISAAC-ROS/isaac_ros_object_detection.git
 [submodule "src/usb_cam"]
-	path = src/usb_cam
+	path = cam/src/usb_cam
 	url = https://github.com/ros-drivers/usb_cam.git
