@@ -36,7 +36,7 @@ class RadarCameraOverlay(Node):
       
        self.dist_coeffs = np.zeros((4, 1)) 
       
-       self.image_sub = Subscriber(self, Image, '/image_raw')
+       self.image_sub = Subscriber(self, Image, '/yolo/image_raw')
        self.radar_sub = Subscriber(self, PointCloud2, '/ti_mmwave/radar_scan_pcl')
       
        self.camera_info_sub = self.create_subscription(
