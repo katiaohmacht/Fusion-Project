@@ -34,7 +34,7 @@ pid_usb_cam=$!
 ros2 run yolo_overlay yolo_overlay_node &
 pid_yolo=$!
 
-ros2 launch radar_camera_fusion overlay.launch.py
+ros2 launch radar_camera_fusion overlay.launch.py &
 pid_overlay=$!
 
 trap "echo 'Stopping nodes'; kill $pid_usb_cam $pid_yolo $pid_overlay; exit" SIGINT
