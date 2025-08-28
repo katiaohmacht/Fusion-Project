@@ -27,6 +27,7 @@ class YOLONode(Node):
         # cv2.imshow("YOLO Detection", annotated_frame)
         # cv2.waitKey(1)
         annotated_msg = self.bridge.cv2_to_imgmsg(annotated_frame, encoding="bgr8")
+        annotated_msg.header.stamp = msg.header.stamp
         self.pub.publish(annotated_msg)
 
 def main(args=None):

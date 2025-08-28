@@ -48,7 +48,7 @@ class RadarCameraOverlay(Node):
       
        self.ts = ApproximateTimeSynchronizer(
            [self.image_sub, self.radar_sub],
-           queue_size=10,
+           queue_size=200,
            slop=0.1 
        )
        self.ts.registerCallback(self.sync_callback)
