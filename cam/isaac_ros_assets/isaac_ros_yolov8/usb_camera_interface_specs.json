@@ -1,0 +1,16 @@
+{
+  "input": {
+    "color": {
+      "image": "/image_rect/nitros"
+    }
+  },
+  "camera_model": "usb_cam",
+  "camera_frame": "usb_camera",
+  "camera_resolution": {
+        "width": 640,
+        "height": 640
+  }
+}
+
+
+
