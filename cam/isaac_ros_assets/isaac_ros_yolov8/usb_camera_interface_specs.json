@@ -1,7 +1,7 @@
 {
   "input": {
     "color": {
-      "image": "/image_rect/nitros"
+      "image": "/image"
     }
   },
   "camera_model": "usb_cam",
