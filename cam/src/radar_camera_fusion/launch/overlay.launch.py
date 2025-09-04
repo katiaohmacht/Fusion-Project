@@ -14,14 +14,14 @@ def generate_launch_description():
         package='tf2_ros',
         executable='static_transform_publisher',
         name='camera_transform',
-        arguments=['0.02', '0.0', '-0.1','0.0', '0.0', '0.0', 'base_link', 'camera_link']
+        arguments=['0.0', '0.0', '0.0','0.0', '0.0', '0.0', 'base_link', 'camera_link']
     )
     
     radar_transform = Node(
         package='tf2_ros',
         executable='static_transform_publisher',
         name='radar_transform',
-        arguments=['0.0', '0.0', '0.0', '0.0', '0.0', '0.0', 'base_link', 'radar_link']
+        arguments=['0.0', '0.0', '-0.035', '0.0', '0.0', '0.0', 'base_link', 'radar_link']
     )
     
     radar_camera_overlay = Node(

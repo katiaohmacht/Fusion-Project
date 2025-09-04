@@ -28,13 +28,20 @@ class RadarCameraOverlay(Node):
        self.image_width = 640
        self.image_height = 480
 
+    #    self.camera_matrix = np.array([
+    #        [600, 0, -700],   
+    #        [0, 600, 100],
+    #        [0, 0, 1]        
+    #    ], dtype=np.float32)
+
        self.camera_matrix = np.array([
-           [600, 0, -700],   
-           [0, 600, 100],
+           [663.4605781885389, 0, 346.8482274375758],   
+           [0, 661.6131006357926, 254.71216531792578],
            [0, 0, 1]        
        ], dtype=np.float32)
       
-       self.dist_coeffs = np.zeros((4, 1)) 
+    #    self.dist_coeffs = np.zeros((4, 1)) 
+       self.dist_coeffs = np.array([-0.8113156996788883, 2.216929595835569, -0.01614192909118915, 0.008634925369795605, -3.641132205149184], dtype=np.float32)
       
        self.image_sub = Subscriber(self, Image, '/yolo/image_raw')
        self.radar_sub = Subscriber(self, PointCloud2, '/ti_mmwave/radar_scan_pcl')
@@ -61,7 +68,7 @@ class RadarCameraOverlay(Node):
        self.declare_parameter('point_color_g', 255)
        self.declare_parameter('point_color_b', 0)
        self.declare_parameter('max_distance', 50.0) 
-       self.declare_parameter('linger_time', 0.3)   
+       self.declare_parameter('linger_time', 1)   
 
        self.point_history = deque(maxlen=2000)
        self.get_logger().info('Radar-Camera Overlay node initialized')
@@ -108,9 +115,12 @@ class RadarCameraOverlay(Node):
                    point_radar = PointStamped()
                    point_radar.header.frame_id = radar_frame
                    point_radar.header.stamp = radar_msg.header.stamp
-                   point_radar.point.x = float(point[0])
+                #    point_radar.point.x = float(point[0])
+                #    point_radar.point.y = float(point[1])
+                #    point_radar.point.z = float(point[2])
+                   point_radar.point.x = float(point[2])*(-1.0)
                    point_radar.point.y = float(point[1])
-                   point_radar.point.z = float(point[2])
+                   point_radar.point.z = float(point[0])
                   
                    point_camera = tf2_geometry_msgs.do_transform_point(point_radar, transform)
                    points_3d.append([

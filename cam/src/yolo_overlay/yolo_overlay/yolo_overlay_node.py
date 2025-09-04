@@ -29,6 +29,19 @@ class YOLONode(Node):
         annotated_msg = self.bridge.cv2_to_imgmsg(annotated_frame, encoding="bgr8")
         annotated_msg.header.stamp = msg.header.stamp
         self.pub.publish(annotated_msg)
+        for r in results:
+            boxes = r.boxes  # Access the Boxes object
+            for box in boxes:
+                # Get bounding box coordinates in xyxy format (top-left x, top-left y, bottom-right x, bottom-right y)
+                x1, y1, x2, y2 = box.xyxy[0].tolist() 
+            
+                # Get bounding box coordinates in xywh format (center x, center y, width, height)
+                # x_center, y_center, width, height = box.xywh[0].tolist()
+
+                confidence = box.conf[0].item() # Confidence score
+                class_id = box.cls[0].item()    # Class ID
+            
+                print(f"Box: ({x1}, {y1}, {x2}, {y2}), Confidence: {confidence:.2f}, Class ID: {int(class_id)}")
 
 def main(args=None):
     rclpy.init(args=args)
