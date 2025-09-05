@@ -43,7 +43,7 @@ class RadarCameraOverlay(Node):
     #    self.dist_coeffs = np.zeros((4, 1)) 
        self.dist_coeffs = np.array([-0.8113156996788883, 2.216929595835569, -0.01614192909118915, 0.008634925369795605, -3.641132205149184], dtype=np.float32)
       
-       self.image_sub = Subscriber(self, Image, '/yolov8_processed_image')
+       self.image_sub = Subscriber(self, Image, '/yolov8_processed_image_stamped')
        self.radar_sub = Subscriber(self, PointCloud2, '/ti_mmwave/radar_scan_pcl')
       
        self.camera_info_sub = self.create_subscription(
